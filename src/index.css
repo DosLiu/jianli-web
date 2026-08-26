@@ -26,16 +26,23 @@ body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
     font-size: clamp(16px, 4.6vw, 19px);
     line-height: 1.35;
     letter-spacing: -0.045em;
-    white-space: nowrap;
-    max-width: none;
-    transform: scaleX(0.8);
-    transform-origin: 50% 0;
+    max-width: 100%;
+    white-space: normal;
   }
 
   .methods-heading span {
     display: block;
+    width: max-content;
+    position: relative;
+    left: 50%;
     white-space: nowrap;
+    transform: translateX(-50%) scaleX(0.8);
+    transform-origin: center top;
   }
+}
+
+@media (max-width: 359px) {
+  .methods-heading span { transform: translateX(-50%) scaleX(0.74); }
 }
 
 ::selection { background: rgba(255, 255, 255, 0.24); color: #fff; }
