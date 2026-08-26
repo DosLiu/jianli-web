@@ -15,8 +15,23 @@ export function HeroSection({ entranceComplete, onEntrance }: { entranceComplete
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
+    const isMobileViewport = window.innerWidth <= 639
+    const isTouchDevice =
+      window.matchMedia('(pointer: coarse)').matches ||
+      (typeof navigator !== 'undefined' && navigator.maxTouchPoints > 0)
+    const shouldAutoplay = isMobileViewport || isTouchDevice
+    const playVideo = () => {
+      if (!shouldAutoplay) return
+      video.loop = true
+      video.autoplay = true
+      void video.play().catch(() => {})
+    }
     const setInitialFrame = () => {
       if (!Number.isFinite(video.duration) || video.duration <= 0) return
+      if (shouldAutoplay) {
+        playVideo()
+        return
+      }
       const startTime = Math.min(0.1, video.duration)
       video.currentTime = startTime
       targetTime.current = startTime
@@ -32,15 +47,26 @@ export function HeroSection({ entranceComplete, onEntrance }: { entranceComplete
     }
     video.addEventListener('seeked', seekNext)
     video.addEventListener('loadedmetadata', setInitialFrame)
+    video.addEventListener('loadeddata', playVideo)
+    video.addEventListener('canplay', playVideo)
     if (video.readyState >= 1) setInitialFrame()
+    if (video.readyState >= 2) playVideo()
     const timer = window.setTimeout(() => onEntrance(true), 800)
     return () => {
       window.clearTimeout(timer)
       video.removeEventListener('seeked', seekNext)
       video.removeEventListener('loadedmetadata', setInitialFrame)
+      video.removeEventListener('loadeddata', playVideo)
+      video.removeEventListener('canplay', playVideo)
       if (frameId.current !== null) window.cancelAnimationFrame(frameId.current)
     }
   }, [onEntrance])
+
+  const handleTouchStart = () => {
+    const video = videoRef.current
+    if (!video) return
+    void video.play().catch(() => {})
+  }
 
   const updateVideoFromPointer = () => {
     frameId.current = null
@@ -79,8 +105,8 @@ export function HeroSection({ entranceComplete, onEntrance }: { entranceComplete
   }
 
   return (
-    <section id="hero" className="relative flex h-[100dvh] min-h-[100svh] flex-col overflow-hidden sm:min-h-[680px]" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-      <video ref={videoRef} className="absolute inset-0 h-full w-full object-cover" src={VIDEOS.hero} poster={HERO_POSTER} muted playsInline preload="auto" aria-hidden="true" tabIndex={-1} />
+    <section id="hero" className="relative flex h-[100dvh] min-h-[100svh] flex-col overflow-hidden sm:min-h-[680px]" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} onTouchStart={handleTouchStart}>
+      <video ref={videoRef} className="absolute inset-0 h-full w-full object-cover" src={VIDEOS.hero} poster={HERO_POSTER} muted playsInline autoPlay={typeof window !== 'undefined' && window.innerWidth <= 639} preload="auto" aria-hidden="true" tabIndex={-1} />
       <div className="pointer-events-none absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
       <motion.div className="relative z-10 flex flex-1 flex-col justify-end px-4 pb-[calc(clamp(72px,11vh,130px)+env(safe-area-inset-bottom))] pt-20 sm:px-6 sm:pt-24 md:px-8" initial={{ opacity: 0 }} animate={{ opacity: entranceComplete ? 1 : 0 }} transition={{ duration: 1 }}>
         <div className="flex w-full flex-col items-start gap-12 md:flex-row md:items-end md:justify-between md:gap-16">
