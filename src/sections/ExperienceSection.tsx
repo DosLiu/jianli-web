@@ -100,7 +100,7 @@ export function ExperienceSection() {
               transition={{ duration: 0.3, ease: [0.215, 0.61, 0.355, 1] }}
               onClick={(event) => event.stopPropagation()}
             >
-              <button ref={closeButtonRef} type="button" aria-label="关闭详细经历" className="absolute right-5 top-4 text-3xl font-light leading-none text-white/45 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60" onClick={() => setSelectedExperience(null)}>×</button>
+              <button ref={closeButtonRef} type="button" aria-label="关闭详细经历" className="absolute right-3 top-3 flex h-11 w-11 items-center justify-center rounded-sm p-0 text-3xl font-light leading-none text-white/45 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 sm:right-5 sm:top-4" onClick={() => setSelectedExperience(null)}>×</button>
               <h2 id="experience-dialog-title" className="pr-10 font-sans text-[clamp(24px,4vw,42px)] font-light leading-[1.08] tracking-[-0.04em] text-white">{selectedExperience.company}</h2>
               <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-[12px] tracking-[0.1em] text-white/45 sm:text-[13px]">
                 <span>{selectedExperience.role}</span>

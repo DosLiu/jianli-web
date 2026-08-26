@@ -5,7 +5,7 @@ export function MethodsSection() {
   return (
     <section className="bg-black px-6 pb-16 pt-0 text-center">
       <motion.div className="mx-auto max-w-6xl -translate-y-8" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 1 }}>
-        <h2 className="mx-auto text-[clamp(28px,4vw,44px)] font-light leading-[1.2] tracking-[-0.02em] text-white">
+        <h2 className="methods-heading mx-auto text-[clamp(28px,4vw,44px)] font-light leading-[1.2] tracking-[-0.02em] text-white">
           <span className="block">把复杂的运营目标拆解成可执行、可复制的</span>
           <span className="block">工作流程，让内容策略、AI工具和团队协作真正落地。</span>
         </h2>

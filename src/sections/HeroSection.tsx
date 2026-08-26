@@ -79,14 +79,14 @@ export function HeroSection({ entranceComplete, onEntrance }: { entranceComplete
   }
 
   return (
-    <section id="hero" className="relative flex h-[100dvh] min-h-[680px] flex-col overflow-hidden" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+    <section id="hero" className="relative flex h-[100dvh] min-h-[100svh] flex-col overflow-hidden sm:min-h-[680px]" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
       <video ref={videoRef} className="absolute inset-0 h-full w-full object-cover" src={VIDEOS.hero} poster={HERO_POSTER} muted playsInline preload="auto" aria-hidden="true" tabIndex={-1} />
       <div className="pointer-events-none absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
-      <motion.div className="relative z-10 flex flex-1 flex-col justify-end px-4 pb-[clamp(88px,11vh,130px)] pt-20 sm:px-6 sm:pt-24 md:px-8" initial={{ opacity: 0 }} animate={{ opacity: entranceComplete ? 1 : 0 }} transition={{ duration: 1 }}>
+      <motion.div className="relative z-10 flex flex-1 flex-col justify-end px-4 pb-[calc(clamp(72px,11vh,130px)+env(safe-area-inset-bottom))] pt-20 sm:px-6 sm:pt-24 md:px-8" initial={{ opacity: 0 }} animate={{ opacity: entranceComplete ? 1 : 0 }} transition={{ duration: 1 }}>
         <div className="flex w-full flex-col items-start gap-12 md:flex-row md:items-end md:justify-between md:gap-16">
           <div className="flex w-full max-w-[500px] flex-col gap-3 sm:gap-4">
-            <h1 className="w-full text-[clamp(72px,15vw,164px)] font-light leading-[0.86] tracking-[-0.055em] text-white"><ScrambleIn text="刘东生" delay={200} triggered={entranceComplete} /></h1>
-            <motion.p className="w-full max-w-full text-left text-[clamp(13px,1.35vw,20px)] leading-[1.2] tracking-normal text-white/80 lg:whitespace-nowrap lg:text-[20px]" initial={{ opacity: 0, y: 25 }} animate={{ opacity: entranceComplete ? 1 : 0, y: entranceComplete ? 0 : 25 }} transition={{ delay: 0.2, duration: 0.9, ease: [0.215, 0.61, 0.355, 1] }}>5年互联网运营经验，具备AI落地与工作流搭建能力</motion.p>
+            <h1 className="w-full text-[clamp(60px,17vw,164px)] font-light leading-[0.86] tracking-[-0.055em] text-white"><ScrambleIn text="刘东生" delay={200} triggered={entranceComplete} /></h1>
+            <motion.p className="w-full max-w-full whitespace-nowrap text-left text-[clamp(11.5px,3.6vw,20px)] leading-[1.2] tracking-[-0.025em] text-white/80 lg:text-[20px]" initial={{ opacity: 0, y: 25 }} animate={{ opacity: entranceComplete ? 1 : 0, y: entranceComplete ? 0 : 25 }} transition={{ delay: 0.2, duration: 0.9, ease: [0.215, 0.61, 0.355, 1] }}>5年互联网运营经验，具备AI落地与工作流搭建能力</motion.p>
           </div>
         </div>
       </motion.div>

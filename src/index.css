@@ -21,6 +21,20 @@ html, body, #root {
 
 body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
 
+@media (max-width: 639px) {
+  .methods-heading {
+    font-size: clamp(16px, 4.8vw, 20px);
+    line-height: 1.3;
+    white-space: nowrap;
+    transform: scaleX(0.78);
+    transform-origin: 50% 0;
+  }
+
+  .methods-heading span {
+    white-space: nowrap;
+  }
+}
+
 ::selection { background: rgba(255, 255, 255, 0.24); color: #fff; }
 
 @layer utilities {
