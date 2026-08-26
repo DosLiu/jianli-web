@@ -21,7 +21,19 @@ html, body, #root {
 
 body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
 
+.advantages-copy { top: -4cm; }
+
 @media (max-width: 639px) {
+  .advantages-section {
+    height: auto;
+    min-height: 0;
+    align-items: flex-start;
+    padding-top: clamp(48px, 8svh, 64px);
+    padding-bottom: clamp(96px, 14svh, 120px);
+  }
+
+  .advantages-copy { top: 0; }
+
   .methods-heading {
     font-size: clamp(16px, 4.6vw, 19px);
     line-height: 1.35;
