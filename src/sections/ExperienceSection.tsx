@@ -48,7 +48,7 @@ export function ExperienceSection() {
   }
 
   return (
-    <section id="experience" className="min-h-screen bg-black px-6 py-32">
+    <section id="experience" className="bg-black px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <motion.div className="grid grid-cols-1 items-center gap-5 md:grid-cols-3 md:gap-6" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.9 }}>
           {experienceCards.map((item, index) => (
@@ -57,7 +57,7 @@ export function ExperienceSection() {
               type="button"
               onClick={(event) => openExperience(item, event.currentTarget)}
               aria-label={`查看${item.company}详细工作经历`}
-              className="group flex h-[clamp(500px,68vh,640px)] w-full cursor-pointer flex-col justify-start rounded-sm border border-white/15 bg-white/[0.02] p-6 text-left transition-colors duration-300 hover:border-white/35 hover:bg-white/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 sm:p-8"
+              className="group flex h-[clamp(460px,60vh,540px)] w-full cursor-pointer flex-col justify-start rounded-sm border border-white/15 bg-white/[0.02] p-6 text-left transition-colors duration-300 hover:border-white/35 hover:bg-white/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 sm:p-8"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
