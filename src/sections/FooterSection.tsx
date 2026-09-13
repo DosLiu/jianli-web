@@ -62,6 +62,16 @@ export function FooterSection() {
                   <span className={`w-[56px] text-right text-[12px] tracking-[0.06em] transition-all duration-300 ${copied ? 'text-white/90' : 'text-white/35 group-hover:text-white/65'}`}>{copied ? '已复制 ✓' : '复制'}</span>
                 </span>
               </button>
+              <a
+                href="https://dosliu.github.io/liutongxue-web/scene/"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="打开AI项目作品集（新标签页）"
+                className="group mt-3 flex w-full items-center justify-between rounded-sm border border-white/15 px-4 py-2.5 transition-colors duration-300 hover:border-white/40 hover:bg-white/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+              >
+                <span className="text-[15px] tracking-[0.04em] text-white/60 transition-colors duration-300 group-hover:text-white/90 sm:text-[16px]">AI 项目作品集</span>
+                <span className="text-[12px] tracking-[0.06em] text-white/35 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white/65">↗</span>
+              </a>
             </div>
           </div>
         </div>
