@@ -10,7 +10,7 @@ export default function App() {
   const [entranceComplete, setEntranceComplete] = useState(false)
 
   return (
-    <main style={{ fontFamily: '"Microsoft YaHei", "PingFang SC", sans-serif' }}>
+    <main className="font-sans">
       <HeroSection entranceComplete={entranceComplete} onEntrance={setEntranceComplete} />
       <MetricsSection />
       <ExperienceSection />

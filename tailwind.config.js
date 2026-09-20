@@ -4,9 +4,28 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Microsoft YaHei"', '"PingFang SC"', 'sans-serif'],
-        serif: ['"Microsoft YaHei"', '"PingFang SC"', 'sans-serif'],
-        mono: ['"Microsoft YaHei"', '"PingFang SC"', 'sans-serif'],
+        sans: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"SF Pro Display"',
+          '"Segoe UI"',
+          'Roboto',
+          '"PingFang SC"',
+          '"Hiragino Sans GB"',
+          '"Microsoft YaHei"',
+          'sans-serif',
+        ],
+        mono: [
+          '"JetBrains Mono"',
+          'ui-monospace',
+          'SFMono-Regular',
+          'Menlo',
+          'Monaco',
+          'Consolas',
+          '"Liberation Mono"',
+          '"Courier New"',
+          'monospace',
+        ],
       },
     },
   },

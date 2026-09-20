@@ -20,7 +20,7 @@ export const advantageLines = [
 
 export const metrics = [
   ['5年', '互联网运营'],
-  ['20+', '抖音商家代运营'],
+  ['30+', '抖音商家代运营'],
   ['0→1', 'AI工作流搭建'],
 ] as const
 

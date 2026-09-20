@@ -43,7 +43,10 @@ export function FooterSection() {
 
   return (
     <footer className="flex min-h-[400px] flex-col overflow-hidden bg-black md:flex-row">
-      <div className="relative h-[300px] w-full md:h-auto md:w-1/2"><VideoBackground src={VIDEOS.footer} poster={FOOTER_POSTER} /></div>
+      <div className="relative h-[300px] w-full overflow-hidden md:h-auto md:w-1/2">
+        <VideoBackground src={VIDEOS.footer} poster={FOOTER_POSTER} />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-black z-[1]" />
+      </div>
       <div className="flex w-full flex-col justify-between p-10 sm:p-16 md:w-1/2">
         <div>
           <div className="text-white/75"><span className="text-[22px] font-medium tracking-tight sm:text-[24px]">刘东生</span></div>
@@ -63,7 +66,7 @@ export function FooterSection() {
                 </span>
               </button>
               <a
-                href="https://dosliu.github.io/liutongxue-web/scene/"
+                href="https://web.liutongxue.com.cn"
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label="打开AI项目作品集（新标签页）"
@@ -75,7 +78,16 @@ export function FooterSection() {
             </div>
           </div>
         </div>
-        <p className="mt-12 text-[12px] text-white/25">(c) 2026 刘东生. All rights reserved.</p>
+        <div className="mt-12 flex items-center justify-between text-[12px] text-white/25">
+          <p>(c) 2026 刘东生. All rights reserved.</p>
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="font-mono text-[11px] tracking-[0.2em] text-white/30 uppercase transition-colors duration-300 hover:text-white/75"
+          >
+            TOP ↑
+          </button>
+        </div>
       </div>
     </footer>
   )
