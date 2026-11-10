@@ -4,8 +4,6 @@
 
 **刘东生的个人简历网站 · 维护文档**
 
-[🌐 线上地址](https://www.liutongxue.com.cn) · [🤖 AI 项目作品集](https://web.liutongxue.com.cn)
-
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5_strict-3178C6?logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white)
